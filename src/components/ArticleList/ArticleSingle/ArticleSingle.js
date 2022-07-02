@@ -1,12 +1,11 @@
 import classes from "./ArticleSingle.module.scss";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Snippet from "../../Snippet/Snippet";
 
 function ArticleSingle() {
   const { id } = useParams();
-  console.log(id);
 
   const [articleFull, setArticleFull] = useState(null);
 
@@ -25,6 +24,13 @@ function ArticleSingle() {
         <p>
           {articleFull.description}
         </p>
+        <Link to={`/update/` + id}>
+          Update
+        </Link>
+        <br/>
+        <Link to={`/delete/` + id}>
+          Delete
+        </Link>
       </li>
     );
   }

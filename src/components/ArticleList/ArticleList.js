@@ -20,6 +20,7 @@ function ArticleList() {
   }, []);
 
   let output = <Snippet/>;
+  
   if(articles !== null) {
     output = articles.map(article => {
       return(
