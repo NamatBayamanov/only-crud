@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import classes from "./ArticleList.module.scss";
 import axios from "axios";
 import Snippet from "../Snippet/Snippet";
+import {Link} from "react-router-dom";
 
 function ArticleList() {
 
@@ -23,7 +24,9 @@ function ArticleList() {
     output = articles.map(article => {
       return(
         <li key={article.id}>
-          {article.name}
+          <Link to={`/` + article.id}>
+            {article.name}
+          </Link>
         </li>
       );
     });
