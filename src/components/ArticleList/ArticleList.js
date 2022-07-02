@@ -20,7 +20,7 @@ function ArticleList() {
   }, []);
 
   let output = <Snippet/>;
-  
+
   if(articles !== null) {
     output = articles.map(article => {
       return(
@@ -36,7 +36,15 @@ function ArticleList() {
 
   return ( 
     <div className={classes.ArticleList}>
-      {output}
+        <div>
+          <Link to="/create">
+            Add List
+          </Link>
+        </div>
+      <div>
+        {output}
+      </div>
+    
     </div>
   );
 }
