@@ -5,6 +5,8 @@ function ArticleCreate() {
 
   const [input, setInput] = useState("");
 
+  const [text, setText] = useState("");
+
   const onSubmitForm = (event) => {
     event.preventDefault();
 
@@ -13,16 +15,30 @@ function ArticleCreate() {
     axios.post(`https://exchangerates-bd5eb-default-rtdb.firebaseio.com/peaple.json`, Object.fromEntries(formData.entries()));
 
     setInput("");
+    setText("");
   }
 
   const onChangeValue = (event) => {
     setInput(event.target.value);
   }
+  const onChangeText = (event) => {
+    setText(event.target.value);
+  }
 
-  return ( 
+
+  return (
     <div>
-      <form onSubmit={onSubmitForm}>  
-        <input type="text" name="name" required value={input} onChange={onChangeValue}/>
+      <form onSubmit={onSubmitForm}>
+        <div>
+          <label>
+            <input type="text" name="name" required value={input} onChange={onChangeValue} />
+          </label>
+        </div>
+        <div>
+          <label>
+            <textarea required type="text" name="description" value={text} onChange={onChangeText}/>
+          </label>
+        </div>
         <button >
           Send
         </button>
