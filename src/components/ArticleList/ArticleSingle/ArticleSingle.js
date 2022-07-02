@@ -11,7 +11,7 @@ function ArticleSingle() {
 
   useEffect(() => {
     axios.get(`https://exchangerates-bd5eb-default-rtdb.firebaseio.com/peaple/${id}.json`).then(({data}) => setArticleFull(data));
-  }, []);
+  }, [id]);
 
   let output = <Snippet/>;
 

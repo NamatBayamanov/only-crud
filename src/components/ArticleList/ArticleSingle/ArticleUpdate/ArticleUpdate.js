@@ -20,7 +20,7 @@ function ArticleUpdate() {
 
   useEffect(() => {
     axios.get(`https://exchangerates-bd5eb-default-rtdb.firebaseio.com/peaple/${id}.json`).then(({data}) => setInput(data));
-  }, []);
+  }, [id]);
 
   const onSubmit = (event) => {
 
